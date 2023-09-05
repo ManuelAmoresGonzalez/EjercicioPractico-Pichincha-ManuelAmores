@@ -1,4 +1,4 @@
-/*package com.EjercicioPracticoPichinchaManuelAmores.movimientos;
+package com.EjercicioPracticoPichinchaManuelAmores.movimientos;
 
 import com.EjercicioPracticoPichinchaManuelAmores.cuenta.Cuenta;
 import jakarta.persistence.*;
@@ -31,4 +31,4 @@ public class Movimiento {
     private Cuenta cuenta;
 
     // Getters y setters
-}*/
+}
