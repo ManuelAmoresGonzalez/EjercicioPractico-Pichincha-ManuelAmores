@@ -26,7 +26,9 @@ public class Cuenta {
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;*/
 
-
-
-
+    public Cuenta(String tipoCuenta, BigDecimal saldoInicial, String estado) {
+        this.tipoCuenta = tipoCuenta;
+        this.saldoInicial = saldoInicial;
+        this.estado = estado;
+    }
 }
