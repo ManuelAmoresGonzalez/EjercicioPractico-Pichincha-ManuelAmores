@@ -1,29 +1,39 @@
-/*package com.EjercicioPracticoPichinchaManuelAmores.cuenta;
+package com.EjercicioPracticoPichinchaManuelAmores.cuenta;
 
 import com.EjercicioPracticoPichinchaManuelAmores.cliente.Cliente;
 import jakarta.persistence.*;
+import lombok.Data;
 
 import java.math.BigDecimal;
 import java.util.List;
 
 @Entity
+@Data
 public class Cuenta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "numero_cuenta")
-    private Long numeroCuenta;
+    private Long cuentaId;
 
-    @Column(name = "tipo_cuenta", nullable = false)
+
+    @Column(length = 50,nullable = false)
     private String tipoCuenta;
 
-    @Column(name = "saldo_inicial")
+
     private BigDecimal saldoInicial;
 
-    @Column(name = "estado")
+    @Column(length = 50,nullable = false)
     private String estado;
 
-    @ManyToMany(mappedBy = "cuentas")
-    private List<Cliente> clientes;
+        /*@ManyToOne
+    @JoinColumn(name = "cliente_id")
+    private Cliente cliente;*/
 
+    public Cuenta() {
+    }
 
-}*/
+    public Cuenta(String tipoCuenta, BigDecimal saldoInicial, String estado) {
+        this.tipoCuenta = tipoCuenta;
+        this.saldoInicial = saldoInicial;
+        this.estado = estado;
+    }
+}
