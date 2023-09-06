@@ -24,16 +24,18 @@ public class Cuenta {
     @Column(length = 50,nullable = false)
     private String estado;
 
-        /*@ManyToOne
+    @ManyToOne
     @JoinColumn(name = "cliente_id")
-    private Cliente cliente;*/
+    private Cliente cliente;
+
 
     public Cuenta() {
     }
 
-    public Cuenta(String tipoCuenta, BigDecimal saldoInicial, String estado) {
+    public Cuenta(String tipoCuenta, BigDecimal saldoInicial, String estado, Cliente cliente) {
         this.tipoCuenta = tipoCuenta;
         this.saldoInicial = saldoInicial;
         this.estado = estado;
+        this.cliente = cliente;
     }
 }

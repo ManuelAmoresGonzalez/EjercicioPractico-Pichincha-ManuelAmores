@@ -1,5 +1,6 @@
 package com.EjercicioPracticoPichinchaManuelAmores.services.cuentaservice;
 
+import com.EjercicioPracticoPichinchaManuelAmores.cliente.IClienteRepository;
 import com.EjercicioPracticoPichinchaManuelAmores.cuenta.Cuenta;
 import com.EjercicioPracticoPichinchaManuelAmores.cuenta.ICuentaRepository;
 import org.springframework.stereotype.Service;

@@ -1,9 +1,12 @@
 package com.EjercicioPracticoPichinchaManuelAmores.cliente;
 
+import com.EjercicioPracticoPichinchaManuelAmores.cuenta.Cuenta;
 import com.EjercicioPracticoPichinchaManuelAmores.persona.Persona;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
+
+import java.util.List;
 
 
 @EqualsAndHashCode(callSuper = true)
@@ -17,13 +20,6 @@ public class Cliente extends Persona{
     private String contrasena;
     private String estado;
 
-   /* @ManyToMany
-    @JoinTable(
-            name = "ClienteCuenta",
-            joinColumns = @JoinColumn(name = "cliente_id"),
-            inverseJoinColumns = @JoinColumn(name = "numero_cuenta")
-    )*/
-    //private List<Cuenta> cuentas;
 
     public Cliente() {
         super();

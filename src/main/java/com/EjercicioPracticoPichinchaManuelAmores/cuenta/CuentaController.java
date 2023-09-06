@@ -1,6 +1,7 @@
 package com.EjercicioPracticoPichinchaManuelAmores.cuenta;
 
 import com.EjercicioPracticoPichinchaManuelAmores.cliente.Cliente;
+import com.EjercicioPracticoPichinchaManuelAmores.cliente.IClienteRepository;
 import com.EjercicioPracticoPichinchaManuelAmores.services.clienteservice.ClienteService;
 import com.EjercicioPracticoPichinchaManuelAmores.services.cuentaservice.CuentaService;
 import org.springframework.http.ResponseEntity;
@@ -14,17 +15,23 @@ import java.util.Optional;
 public class CuentaController {
 
     private final CuentaService cuentaService;
+    private final IClienteRepository clienteRepository;
 
-    public CuentaController(CuentaService cuentaService) {
+    public CuentaController(CuentaService cuentaService, IClienteRepository clienteRepository) {
         this.cuentaService = cuentaService;
+        this.clienteRepository = clienteRepository;
     }
 
     @GetMapping
     public ArrayList<Cuenta> getCuentas() { return cuentaService.getCuentas();}
 
     @PostMapping
-    public Cuenta crearCuenta(@RequestBody Cuenta cuenta){
-        return this.cuentaService.crearCuenta(cuenta);
+    public ResponseEntity<Object> crearCuenta(@RequestBody Cuenta cuenta){
+        Optional<Cliente> cliente = clienteRepository.findById(cuenta.getCliente().getClienteId());
+        if(cliente.isEmpty())
+           return ResponseEntity.ok(Boolean.FALSE);
+        this.cuentaService.crearCuenta(cuenta);
+        return ResponseEntity.ok(Boolean.TRUE);
     }
 
     @GetMapping(path= "/{id}")
